@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1384174241419760756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1384174241419760757}
+  - component: {fileID: 1384174241419760746}
+  m_Layer: 5
+  m_Name: _AudioManager_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1384174241419760757
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384174241419760756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1384174241419760746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384174241419760756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8361d62b2b3f08a4cac29f381e809f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - clip: {fileID: 8300000, guid: 0b7e8171040c356419ba6ab0221bef91, type: 3}
+    mixerGroup: {fileID: -7704460523785627540, guid: 34c6b3cd35d88854d9f1ec90eacaec1a,
+      type: 2}
+    name: HIT
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 7943f5a6e3db63b49b030424b6e254ba, type: 3}
+    mixerGroup: {fileID: -7704460523785627540, guid: 34c6b3cd35d88854d9f1ec90eacaec1a,
+      type: 2}
+    name: DAMAGE
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 1476f114268aca946b71df7c35dec679, type: 3}
+    mixerGroup: {fileID: -7704460523785627540, guid: 34c6b3cd35d88854d9f1ec90eacaec1a,
+      type: 2}
+    name: MISS
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: a29ec71e2b7ad3c40b752991f0a5efb8, type: 3}
+    mixerGroup: {fileID: -8882694773605142251, guid: 34c6b3cd35d88854d9f1ec90eacaec1a,
+      type: 2}
+    name: BACK
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: daae5ffb731247f4da0639a2ccf90808, type: 3}
+    mixerGroup: {fileID: -8882694773605142251, guid: 34c6b3cd35d88854d9f1ec90eacaec1a,
+      type: 2}
+    name: FORWARD
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 99f41c1fea99bdf4194b13445f570f16, type: 3}
+    mixerGroup: {fileID: -8882694773605142251, guid: 34c6b3cd35d88854d9f1ec90eacaec1a,
+      type: 2}
+    name: HOVER
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 75fe5ff5c9512154888f1098e0b2bfad, type: 3}
+    mixerGroup: {fileID: -8882694773605142251, guid: 34c6b3cd35d88854d9f1ec90eacaec1a,
+      type: 2}
+    name: SELECT
+    volume: 0.733
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 86eab0fbda2cfab408f35bc4ad5013f7, type: 3}
+    mixerGroup: {fileID: -8882694773605142251, guid: 34c6b3cd35d88854d9f1ec90eacaec1a,
+      type: 2}
+    name: SWITCH
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 33510725f36900c4c80e15b4b540ba4c, type: 3}
+    mixerGroup: {fileID: -8882694773605142251, guid: 34c6b3cd35d88854d9f1ec90eacaec1a,
+      type: 2}
+    name: AUTOPLACEMENT
+    volume: 0.801
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 17280843fe48da444b515c53683cbac9, type: 3}
+    mixerGroup: {fileID: -8882694773605142251, guid: 34c6b3cd35d88854d9f1ec90eacaec1a,
+      type: 2}
+    name: CLEAR
+    volume: 0.801
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 414a3e4d95f9b3647ae3a1c086ea849e, type: 3}
+    mixerGroup: {fileID: -8882694773605142251, guid: 34c6b3cd35d88854d9f1ec90eacaec1a,
+      type: 2}
+    name: TURNSHIP
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: b5e9800544ef4e04b9bdbb8278a961a4, type: 3}
+    mixerGroup: {fileID: -8882694773605142251, guid: 34c6b3cd35d88854d9f1ec90eacaec1a,
+      type: 2}
+    name: PLACESHIP
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: d6b3f762fdfac8342bebc82fbd6f7c3a, type: 3}
+    mixerGroup: {fileID: -8882694773605142251, guid: 34c6b3cd35d88854d9f1ec90eacaec1a,
+      type: 2}
+    name: DELETESHIP
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
