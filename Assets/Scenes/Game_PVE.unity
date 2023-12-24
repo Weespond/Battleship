@@ -9856,9 +9856,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 965448826}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99ac67ce98d26764da150b4860b063a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 66ebcf183c8cb0e42b77c2a24420a083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  modalPanel: {fileID: 1141673926}
+  shipsGrid: {fileID: 650096165}
+  gm: {fileID: 0}
 --- !u!1001 &968506274
 PrefabInstance:
   m_ObjectHideFlags: 0

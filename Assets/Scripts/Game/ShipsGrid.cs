@@ -114,7 +114,7 @@ public class ShipsGrid : MonoBehaviour
 
         SwitchReadyState();
     }
-    public void AutoPlacement_AntiDiagonal()
+    public void AutoPlacement_Diagonal()
     {
         transform.GetChild(0).GetComponent<Ship>().DeleteAllShips();
 
@@ -184,7 +184,7 @@ public class ShipsGrid : MonoBehaviour
         SwitchReadyState();
     }
     //Посмотреть на корректность работы
-    public void AutoPlacement_OnEdges()
+    public void AutoPlacement_Edges()
     {
         transform.GetChild(0).GetComponent<Ship>().DeleteAllShips();
 

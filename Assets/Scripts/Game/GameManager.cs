@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
             //aiTactic = (Tactic)Random.Range(0, 2); 
             if (medium == 0)
             {
-                aiGrid.AutoPlacement_AntiDiagonal();
+                aiGrid.AutoPlacement_Diagonal();
             }
             else
             {
@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
             }
             else if (hard == 1)
             {
-                aiGrid.AutoPlacement_AntiDiagonal();
+                aiGrid.AutoPlacement_Diagonal();
             }
             else
             {

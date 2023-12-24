@@ -50,9 +50,9 @@ public class ControlCanvas : MonoBehaviour // basically - placement control canv
     }
 
     public void P_Random() => grid.AutoPlacement_Random();   
-    public void P_Anti_Diagonal() => grid.AutoPlacement_AntiDiagonal();
+    public void P_Anti_Diagonal() => grid.AutoPlacement_Diagonal();
     public void P_Coasts() => grid.AutoPlacement_Coasts();
-    public void P_Edges() => grid.AutoPlacement_OnEdges();
+    public void P_Edges() => grid.AutoPlacement_Edges();
 
     void Update()
     {
