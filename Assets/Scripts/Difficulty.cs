@@ -9,8 +9,9 @@ public class Difficulty : MonoBehaviour
     public void OnEnable() => ChooseDifficulty();
     public void ChooseDifficulty()
     {
+        bool isMystic = transform.Find("Mystic").GetComponent<Toggle>().isOn;
         bool isMedium = transform.Find("Medium").GetComponent<Toggle>().isOn;
         bool isHigh = transform.Find("High").GetComponent<Toggle>().isOn;
-        difficultyValue = isMedium ? 1 : isHigh ? 2 : 0;        
+        difficultyValue = isMystic ? 3 : isMedium ? 1 : isHigh ? 2 : 0;        
     }
 }

@@ -86,37 +86,32 @@ public class GameManager : MonoBehaviour
     {
         ShipsGrid aiGrid = opponentGrid.GetComponent<ShipsGrid>();
         int difficulty = Difficulty.difficultyValue;
-        int medium = Random.Range(0, 2);
-        int hard = Random.Range(0, 3);
+        int rnd = Random.Range(0, 3);
 
-        if (difficulty == 0)
+        if (difficulty == 0) //Легкий
         {
-            aiTactic = (Tactic)0;
+            aiTactic = Tactic.Random;
             aiGrid.AutoPlacement_Random();
         }
-        else if (difficulty == 1)
+        else if (difficulty == 1) //Средний
         {
-            aiTactic = (Tactic)1; // DEBUG
-            //aiTactic = (Tactic)Random.Range(0, 2); 
-            if (medium == 0)
-            {
-                aiGrid.AutoPlacement_Diagonal();
-            }
-            else
-            {
-                aiGrid.AutoPlacement_Coasts();
-            }
+            aiTactic = Tactic.Random;
+            aiGrid.AutoPlacement_Diagonal();
         }
-        else
+        else if (difficulty == 2) //Тяжелый
         {
-            aiTactic = (Tactic)2; // DEBUG
-            //aiTactic = (Tactic)Random.Range(1, 3);
+            aiTactic = Tactic.Diagonal;
+            aiGrid.AutoPlacement_Coasts();
+        }
+        else  //Мистический
+        {
+            aiTactic = (Tactic)rnd;
 
-            if (hard == 0)
+            if (rnd == 0)
             {
                 aiGrid.AutoPlacement_Random();
             }
-            else if (hard == 1)
+            else if (rnd == 1)
             {
                 aiGrid.AutoPlacement_Diagonal();
             }
@@ -163,9 +158,8 @@ public class GameManager : MonoBehaviour
         opponentTerrain.gameObject.SetActive(true);
 
         sharedCanvas.transform.Find("NameTags").gameObject.SetActive(true);
-        //todo добавить неймтег "Мистический"
         ownNameInfo.text = "<color #ff00ff>" + Authorization.nickname + "</color>";
-        opponentNameInfo.text = "<color #ff0000>Противник (" + (Difficulty.difficultyValue == 2 ? "тяжело" : Difficulty.difficultyValue == 1 ? "средне" : "легко") + ")</color>";
+        opponentNameInfo.text = "<color #ff0000>Противник (" + (Difficulty.difficultyValue == 3 ? "мистический" : Difficulty.difficultyValue == 2 ? "тяжело" : Difficulty.difficultyValue == 1 ? "средне" : "легко") + ")</color>";
 
         string myplacement = "";
         int[,] cells = ownGrid.GetComponent<ShipsGrid>().GridCells;
@@ -267,7 +261,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator AITurnCoroutine(float count) // -------------- AI LOGIC --------------
     {
         bool miss = false;
-        while (!miss && HitCount_02 < 20)
+        while (!miss && HitCount_02 < 20) //проверка на окончание игры
         {
             int index;
             yield return new WaitForSeconds(count);
@@ -280,10 +274,8 @@ public class GameManager : MonoBehaviour
             {
                 if (aiTactic == Tactic.Random)
                     index = AIChooseCell_Random();
-                else if (aiTactic == Tactic.Diagonal)
-                    index = AIChooseCell_Diagonal();
                 else
-                    index = AIChooseCell_FastCarrier();
+                    index = AIChooseCell_Diagonal();
             }
 
             int row = index / 10;
@@ -477,65 +469,6 @@ public class GameManager : MonoBehaviour
             return diagonalCells[d].x * 10 + diagonalCells[d].y;
         }
     }
-    public int AIChooseCell_FastCarrier()
-    {
-        List<Vector2Int> gooseFeetCells = new List<Vector2Int>();
-        for (int i = 0; i < 10; i++)
-        {
-            int col1;
-            int col2;
-            int col3 = 10;
-
-            if (i % 4 == 0)
-            {
-                col1 = 3;
-                col2 = 7;
-            }
-            else if (i % 4 == 1)
-            {
-                col1 = 2;
-                col2 = 6;
-            }
-            else if (i % 4 == 2)
-            {
-                col1 = 0;
-                col2 = 4;
-                col3 = 8;
-            }
-            else
-            {
-                col1 = 1;
-                col2 = 5;
-                col3 = 9;
-            }
-
-            if (Placement_01[i * 10 + col1] == '0' || Placement_01[i * 10 + col1] == '1')
-            {
-                gooseFeetCells.Add(new Vector2Int(i, col1));
-            }
-            if (Placement_01[i * 10 + col2] == '0' || Placement_01[i * 10 + col2] == '1')
-            {
-                gooseFeetCells.Add(new Vector2Int(i, col2));
-            }
-            if (col3 < 10)
-            {
-                if (Placement_01[i * 10 + col3] == '0' || Placement_01[i * 10 + col3] == '1')
-                {
-                    gooseFeetCells.Add(new Vector2Int(i, col3));
-                }
-            }
-        }
-        if (gooseFeetCells.Count == 0)
-        {
-            return AIChooseCell_Random();
-        }
-        else
-        {
-            int d = Random.Range(0, gooseFeetCells.Count);
-            return gooseFeetCells[d].x * 10 + gooseFeetCells[d].y;
-        }
-    }
-
 
     public void ShootAndUpdateCell(Side shooter, int row, int column) // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! //
     {
