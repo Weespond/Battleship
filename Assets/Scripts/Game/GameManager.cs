@@ -148,10 +148,6 @@ public class GameManager : MonoBehaviour
 
         GameObject barPanel = GameObject.Find("MainCamera").transform.Find("Canvas").Find("Bar").Find("Panel").gameObject; // bar
         barPanel.SetActive(true);
-        //barPanel.transform.Find("Save").gameObject.GetComponent<Button>().interactable = true;
-        //barPanel.transform.Find("Save").transform.Find("Text").gameObject.GetComponent<TMP_Text>().text = "Сохранить";
-        //barPanel.transform.Find("Load").gameObject.GetComponent<Button>().interactable = true;
-        //barPanel.transform.Find("Load").transform.Find("Text").gameObject.GetComponent<TMP_Text>().text = "Загрузить";
 
         ownCanvas.transform.Find("Panel").gameObject.SetActive(false);
 

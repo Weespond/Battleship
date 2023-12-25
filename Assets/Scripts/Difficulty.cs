@@ -12,6 +12,6 @@ public class Difficulty : MonoBehaviour
         bool isMystic = transform.Find("Mystic").GetComponent<Toggle>().isOn;
         bool isMedium = transform.Find("Medium").GetComponent<Toggle>().isOn;
         bool isHigh = transform.Find("High").GetComponent<Toggle>().isOn;
-        difficultyValue = isMystic ? 3 : isMedium ? 1 : isHigh ? 2 : 0;        
+        difficultyValue = isMedium ? 1 : isHigh ? 2 : isMystic ? 3: 0;        
     }
 }
